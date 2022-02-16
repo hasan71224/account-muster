@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mony Mastery</title>
+    <title>Account Mastery</title>
     <!-- link with css file -->
     <link rel="stylesheet" href="css/style.css">
     <!-- link with bootstrap -->
@@ -15,7 +15,84 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>hallo js</h1>
+    <header>
+        <!-- title part -->
+        <h1 class="text-center fw-bold my-5 text-success">Account Mastery</h1>
+    </header>
+    <main>
+        <section>
+            <!-- image part -->
+            <div class="container px-4">
+                <div class="row gx-5">
+                  <div class="col">
+                    <div class=" ">
+                        <img class="w-100" src="images/mony.jpg" alt="mony-mastery">
+                    </div> 
+                  </div>
+
+                  
+                  <!-- calculation part -->
+                  <div class="col">
+                    <div class="border bg-light">
+                        <!-- income part -->
+                        <h3 class="text-center p-3 fw-bold">Income</h3>
+                        <div class="d-flex justify-content-center mt-4">
+                            <h5>Income:</h5>
+                            <input id="income" class="ms-3" type="text">
+                        </div>
+                        <!-- Expenses part -->
+                        <h3 class="text-center mt-4 pt-3 fw-bold">Expenses</h3>
+                        <div class="d-flex justify-content-center mt-4">
+                            <h5 class="me-5">Food:</h5>
+                            <input id="food" type="text">
+                        </div>
+                        <div class="d-flex justify-content-center mt-4">
+                            <h5 class="me-5">Rent:</h5>
+                            <input id="rent" type="text">
+                        </div>
+                        <div class="d-flex justify-content-center mt-4">
+                            <h5 class="me-3">Clothes:</h5>
+                            <input id="colthes" type="text">
+                        </div>
+                        <!-- button calculate -->
+                        <div class="d-flex justify-content-center mt-4">
+                            <button id="deposit-calculate" class="btn btn-primary px-5 py-2 text-light rounded border border-white fs-5">Deposit</button>
+                        </div>
+                        <!-- total expence -->
+                        <div class="d-flex justify-content-center mt-5">
+                            <h3 class="fw-normal">Total Expenses:</h3>
+                            <h4 class="fw-bold mt-1 ms-2"><span id="total-expenses">00</span></h4>
+                        </div>
+                        <!-- Balance calculation -->
+                        <div class="d-flex justify-content-center mt-4">
+                            <h3 class="fw-normal">Balance:</h3>
+                            <h4 class="fw-bold mt-1 ms-2"><span id="balance">00</span></h4>
+                        </div>
+                        <!-- Save -->
+                        <div class="d-flex justify-content-center mt-4">
+                            <h5 class="me-3 mt-2">Save:</h5>
+                            <input type="text">
+                            <h5 class="ms-3 me-3 mt-2">%</h5>
+                            <div class="">
+                                <button id="save" class="btn btn-primary px-5 py-2 text-light rounded border border-white fs-6">Save</button>
+                            </div>
+                        </div>
+                        <!-- Saving Amount -->
+                        <div class="d-flex justify-content-center mt-5">
+                            <h3 class="fw-normal">Saving Amount:</h3>
+                            <h4 class="fw-bold mt-1 ms-2"><span id="saving-amount">00</span></h4>
+                        </div>
+                        <!-- Remaining Balance -->
+                        <div class="d-flex justify-content-center mt-4">
+                            <h3 class="fw-normal">Remaining Balance:</h3>
+                            <h4 class="fw-bold mt-1 ms-2"><span id="remaining-balance">00</span></h4>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </section>
+    </main>
   
     
     <script src="js/mony-mastery.js"></script>
