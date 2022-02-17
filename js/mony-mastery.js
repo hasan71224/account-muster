@@ -67,7 +67,13 @@ document.getElementById("deposit-calculate").addEventListener("click",function()
 
     // total balance show
     totalBalanceAmount = (previousTotalBalance + totalIncome) - totalExpensesAmount;
-    totalBalance.innerText = totalBalanceAmount;
+    if(totalBalanceAmount<totalExpensesAmount){
+        window.alert("Total Balance Amount is lower to total Expence");
+        totalBalance.innerText = totalBalanceAmount;
+    }
+    else{
+        totalBalance.innerText = totalBalanceAmount;
+    }
 
     // input value clear
     income.value = "";
@@ -95,17 +101,25 @@ document.getElementById("save-button").addEventListener("click", function(){
     const successMassage = document.getElementById("notify-success");
     const failError = document.getElementById("notify-fail");
     //check savings and get notification
-    if(totalBalanceAmount<totalExpensesAmount || totalBalanceAmount !=-1){
+    let totalSavingsAmount;
+    if(totalBalanceAmount<totalExpensesAmount){
         failError.style.display = "block";
         successMassage.style.display = "none";
     }
     else{
-        const totalSavingsAmount = (totalBalanceAmount * totalSave) / 100;
+        totalSavingsAmount = (totalBalanceAmount * totalSave) / 100;
         // show in savings amount
         totalSavings.innerText = totalSavingsAmount;
         failError.style.display = "none";
         successMassage.style.display = "block";
     }
+    //remaining-balance 
+    const remainingBalance = document.getElementById("remaining-balance");
+    const remainingBalanceText = remainingBalance.innerText;
+    const previousRemainingBalance = parseFloat(remainingBalanceText);
+    // show remaining-balance 
+    const totalRemainingBalance = previousRemainingBalance + (totalBalanceAmount - totalSavingsAmount);
+    remainingBalance.innerText = totalRemainingBalance;
     // save input value clear
     save.value = "";
 })
