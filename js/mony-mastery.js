@@ -1,7 +1,22 @@
+//globaly declear 
+var totalBalanceAmount;
+var totalExpensesAmount;
+
+//common function
 function extractData(inputData){
     const input = document.getElementById(inputData);
     const inputValue = input.value;
-    return parseFloat(inputValue);
+    const findValue = parseFloat(inputValue);
+    
+    if(isNaN(findValue)){
+        window.alert("Only number is alow");
+    }
+    else if(findValue < 0){
+        window.alert("negative value not acceptable");
+    }
+    else{
+        return findValue;
+    }
 }
 document.getElementById("deposit-calculate").addEventListener("click",function(){
     // console.log(extractData("income"));
@@ -42,7 +57,7 @@ document.getElementById("deposit-calculate").addEventListener("click",function()
     const previousTotalExpenses = parseFloat(totalExpensesText);
 
     // total Expenses Amount show
-    const totalExpensesAmount = expenceForFood + expenceForRent + expenceForClothes + previousTotalExpenses;
+    totalExpensesAmount = expenceForFood + expenceForRent + expenceForClothes + previousTotalExpenses;
     totalExpenses.innerText = totalExpensesAmount;
 
     //update balance
@@ -51,7 +66,7 @@ document.getElementById("deposit-calculate").addEventListener("click",function()
     const previousTotalBalance = parseFloat(totalBalanceText);
 
     // total balance show
-    const totalBalanceAmount = (previousTotalBalance + totalIncome) - totalExpensesAmount;
+    totalBalanceAmount = (previousTotalBalance + totalIncome) - totalExpensesAmount;
     totalBalance.innerText = totalBalanceAmount;
 
     // input value clear
@@ -60,4 +75,37 @@ document.getElementById("deposit-calculate").addEventListener("click",function()
     rent.value = "";
     clothes.value = "";
 
+
+})
+
+// function for savings
+document.getElementById("save-button").addEventListener("click", function(){
+    const savings = document.getElementById("save");
+    const savingsPersentText = savings.value;
+    const savingsPersent = parseFloat(savingsPersentText);
+
+    //update savings balance
+    const totalSavings = document.getElementById("saving-amount");
+    const totalSavingsText = totalSavings.innerText;
+    const previousTotalSavings = parseFloat(totalSavingsText);
+
+    //total savings show
+    const totalSave = savingsPersent + previousTotalSavings;
+    // console.log(totalSave);
+    const successMassage = document.getElementById("notify-success");
+    const failError = document.getElementById("notify-fail");
+    //check savings and get notification
+    if(totalBalanceAmount<totalExpensesAmount || totalBalanceAmount !=-1){
+        failError.style.display = "block";
+        successMassage.style.display = "none";
+    }
+    else{
+        const totalSavingsAmount = (totalBalanceAmount * totalSave) / 100;
+        // show in savings amount
+        totalSavings.innerText = totalSavingsAmount;
+        failError.style.display = "none";
+        successMassage.style.display = "block";
+    }
+    // save input value clear
+    save.value = "";
 })

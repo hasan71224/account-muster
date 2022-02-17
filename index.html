@@ -71,10 +71,10 @@
                         <!-- Save -->
                         <div class="d-flex justify-content-center mt-4">
                             <h5 class="me-3 mt-2">Save:</h5>
-                            <input type="text">
+                            <input id="save" type="text">
                             <h5 class="ms-3 me-3 mt-2">%</h5>
                             <div class="">
-                                <button id="save" class="btn btn-primary px-5 py-2 text-light rounded border border-white fs-6">Save</button>
+                                <button id="save-button" class="btn btn-primary px-5 py-2 text-light rounded border border-white fs-6">Save</button>
                             </div>
                         </div>
                         <!-- Saving Amount -->
@@ -92,9 +92,11 @@
                 </div>
               </div>
         </section>
+        <div class="notify-section d-print-none">
+            <p id="notify-fail" class="notify">❌ Balance is low, pleade try again</p>
+            <p id="notify-success" class="notify">✅ success fully done</p>
+        </div>
     </main>
-  
-    
     <script src="js/mony-mastery.js"></script>
 </body>
 </html>
